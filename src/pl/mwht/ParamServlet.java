@@ -14,6 +14,18 @@ public class ParamServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         response.setContentType("text/html; charset=utf-8");
         try {
+            String result = null;
+
+            if(request.getParameter("x") != null && request.getParameter("y") != null) {
+                try {
+                    Integer x = Integer.parseInt(request.getParameter("x"));
+                    Integer y = Integer.parseInt(request.getParameter("y"));
+                    result = x + " + " + y + " = " + (x + y);
+                } catch (Exception e) {
+                    result = "Error - " + e.getClass().getSimpleName() + ": " + e.getMessage();
+                }
+            }
+
             out.println("HTTP method: <strong>" + request.getMethod() + "</strong><br/>");
             out.println("Your (or proxy) IP address: <strong>" + request.getRemoteAddr() + "</strong><br/>");
             out.println("Server name: <strong>" + request.getServerName() + "</strong><br />");
@@ -23,7 +35,20 @@ public class ParamServlet extends HttpServlet {
             out.println("Your browser is: <strong>" + request.getHeader("User-Agent") + "</strong><br />");
             out.println("Your name is: <strong>" + request.getParameter("imie") + "</strong><br />");
             out.println("Your age is: <strong>" + request.getParameter("wiek") + "</strong><br />");
-
+            out.println("<form>");
+            out.println("<table>");
+            out.println("<tr>");
+            out.println("<td>x:</td><td><input name=\"x\" /></td>");
+            out.println("</tr>");
+            out.println("<tr>");
+            out.println("<td>y:</td><td><input name=\"y\" /></td>");
+            out.println("</tr>");
+            out.println("</table>");
+            out.println("<input type=\"submit\" />");
+            out.println("</form>");
+            if(result != null) {
+                out.println("Result: <strong>" + result + "</strong>");
+            }
         } finally {
             out.close();
         }
