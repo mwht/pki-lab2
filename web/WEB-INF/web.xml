@@ -7,6 +7,10 @@
     <servlet>
         <servlet-name>ParamServlet</servlet-name>
         <servlet-class>pl.mwht.ParamServlet</servlet-class>
+        <init-param>
+            <param-name>message</param-name>
+            <param-value>woah init param</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>ParamServlet</servlet-name>

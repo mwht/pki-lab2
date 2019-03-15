@@ -1,5 +1,6 @@
 package pl.mwht;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +13,12 @@ import java.io.PrintWriter;
 public class ParamServlet extends HttpServlet {
 
     int i = 0;
+    String message;
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        message = config.getInitParameter("message");
+    }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
@@ -56,6 +63,7 @@ public class ParamServlet extends HttpServlet {
             */
             i = i + 1;
             out.println(i);
+            out.println("<marquee>" + message + "</marquee>");
         } finally {
             out.close();
         }
