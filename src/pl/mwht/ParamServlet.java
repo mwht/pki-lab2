@@ -10,6 +10,9 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "ParamServlet")
 public class ParamServlet extends HttpServlet {
+
+    int i = 0;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         response.setContentType("text/html; charset=utf-8");
@@ -51,7 +54,6 @@ public class ParamServlet extends HttpServlet {
                 out.println("Result: <strong>" + result + "</strong>");
             }
             */
-            int i = 0;
             i = i + 1;
             out.println(i);
         } finally {
