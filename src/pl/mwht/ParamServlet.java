@@ -14,6 +14,7 @@ public class ParamServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         response.setContentType("text/html; charset=utf-8");
         try {
+            /*
             String result = null;
 
             if(request.getParameter("x") != null && request.getParameter("y") != null) {
@@ -49,6 +50,10 @@ public class ParamServlet extends HttpServlet {
             if(result != null) {
                 out.println("Result: <strong>" + result + "</strong>");
             }
+            */
+            int i = 0;
+            i = i + 1;
+            out.println(i);
         } finally {
             out.close();
         }
