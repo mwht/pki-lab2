@@ -21,6 +21,8 @@ public class ParamServlet extends HttpServlet {
             out.println("You accept following languages: <strong>" + request.getHeader("Accept-Language") + "</strong><br />");
             out.println("You accept following encodings for HTTP response: <strong>" + request.getHeader("Accept-Encoding") + "</strong><br />");
             out.println("Your browser is: <strong>" + request.getHeader("User-Agent") + "</strong><br />");
+            out.println("Your name is: <strong>" + request.getParameter("imie") + "</strong><br />");
+            out.println("Your age is: <strong>" + request.getParameter("wiek") + "</strong><br />");
 
         } finally {
             out.close();
