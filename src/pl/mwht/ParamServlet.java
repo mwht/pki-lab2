@@ -35,7 +35,7 @@ public class ParamServlet extends HttpServlet {
             out.println("Your browser is: <strong>" + request.getHeader("User-Agent") + "</strong><br />");
             out.println("Your name is: <strong>" + request.getParameter("imie") + "</strong><br />");
             out.println("Your age is: <strong>" + request.getParameter("wiek") + "</strong><br />");
-            out.println("<form>");
+            out.println("<form method=\"post\">");
             out.println("<table>");
             out.println("<tr>");
             out.println("<td>x:</td><td><input name=\"x\" /></td>");
